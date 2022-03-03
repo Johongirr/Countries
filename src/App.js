@@ -35,7 +35,7 @@ function App() {
         setCountries(res.data);
       });
   };
-  console.log(userVal);
+
   return (
     <div className={theme === "dark" ? "app-dark-theme" : "app-light-theme"}>
       <BrowserRouter>
@@ -65,7 +65,7 @@ function App() {
                 exitCountryDetail={exitCountryDetail}
               />
             </Route>
-            <Route path="/countries-app/:name">
+            <Route path="/:name">
               <CountryDetail exitCountryDetail={exitCountryDetail} />
             </Route>
           </Switch>

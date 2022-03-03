@@ -72,7 +72,7 @@ function CountryItem({ country, exitCountryDetail }) {
         <CardActions>
           <Link
             onClick={() => exitCountryDetail(true)}
-            to={`/countries-app/${country.name}`}
+            to={`/${country.name}`}
             className="country-item__btn"
           >
             Read Details
