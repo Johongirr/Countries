@@ -65,7 +65,7 @@ function App() {
                 exitCountryDetail={exitCountryDetail}
               />
             </Route>
-            <Route path="/:name">
+            <Route path="/countries-app/:name">
               <CountryDetail exitCountryDetail={exitCountryDetail} />
             </Route>
           </Switch>
