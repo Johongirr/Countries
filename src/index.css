@@ -144,6 +144,16 @@
     transform: scale(1.05);
 }
 
+.map__marker {
+    position: relative !important;
+}
+.map__weather {
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+
 @media(max-width: 599px){
     .country-detail__text--sm {
         margin-top: 30px !important;

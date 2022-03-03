@@ -30,6 +30,7 @@ function App() {
       }
     }, 10000);
   }, []);
+
   const exitCountryDetail = (val) => {
     setCountryDetailActive(val);
   };

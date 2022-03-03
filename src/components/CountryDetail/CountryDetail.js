@@ -3,6 +3,7 @@ import axios from "axios";
 import { Button, Box, Grid, Typography } from "@mui/material";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import { NavLink, useLocation } from "react-router-dom";
+import CountryOnMap from "../CountryOnMap/CountryOnMap";
 import { addCommaToNumbers } from "../../util/addComma";
 
 function CountryDetail({
@@ -36,10 +37,9 @@ function CountryDetail({
           setCountry([res.data]);
         });
     }
-
     setAlphaCountry("");
   }, [alphaCountry]);
-  console.log(country);
+  console.log(country[0]?.latlng, country);
   return (
     <div className="country-detail" style={{ padding: "50px 0" }}>
       {country.length && (
@@ -163,6 +163,7 @@ function CountryDetail({
               </Box>
             </Grid>
           </Grid>
+          <CountryOnMap country={country} />
         </>
       )}
     </div>
