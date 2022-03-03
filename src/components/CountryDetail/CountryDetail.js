@@ -12,8 +12,8 @@ function CountryDetail({
 }) {
   const [country, setCountry] = useState("");
   const [alphaCountry, setAlphaCountry] = useState("");
-
   const location = useLocation();
+
   useEffect(() => {
     axios
       .get(`https://restcountries.com/v2/name${location.pathname}`)
@@ -54,7 +54,7 @@ function CountryDetail({
             <Typography ml={1}>Back</Typography>
           </NavLink>
           <Grid container mt={10}>
-            <Grid item xs={12} lg={6}>
+            <Grid item xs="12" md="6">
               <img
                 className="country-detail__img"
                 src={country[0].flag}
@@ -66,12 +66,17 @@ function CountryDetail({
                 }}
               />
             </Grid>
-            <Grid item lg={6}>
+            <Grid item xs="12" sm="6" md="6">
               <Typography mt={3} variant="h4" fontWeight="bold">
                 {country[0].name}
               </Typography>
-              <Box mt={5} display="flex" justifyContent="space-between">
-                <Box>
+              <Grid
+                mt={5}
+                style={{ width: "100%" }}
+                container
+                justifyContent="space-between"
+              >
+                <Grid item xs="12" sm="6" md="6">
                   <Typography mb={1}>
                     <strong className="country-detail__text">
                       Native Name
@@ -106,9 +111,9 @@ function CountryDetail({
                       {country[0].capital}
                     </span>
                   </Typography>
-                </Box>
-                <Box>
-                  <Typography mb={1}>
+                </Grid>
+                <Grid item xs="12" sm="6" md="6">
+                  <Typography mb={1} className="country-detail__text--sm">
                     <strong className="country-detail__text">
                       Top Level Domain
                     </strong>{" "}
@@ -130,8 +135,8 @@ function CountryDetail({
                       </span>
                     ))}
                   </Typography>
-                </Box>
-              </Box>
+                </Grid>
+              </Grid>
               <Box mt={5}>
                 <Typography>
                   {country[0].borders && (

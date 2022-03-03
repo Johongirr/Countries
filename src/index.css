@@ -78,8 +78,7 @@
 
 
     /* country details */
-.app-dark-theme .country-detail {
-    height:1100px;    
+.app-dark-theme .country-detail {    
     color: var(--white);
 }
 .app-dark-theme .country-detail__link {
@@ -143,4 +142,10 @@
 }
 .card:hover {
     transform: scale(1.05);
+}
+
+@media(max-width: 599px){
+    .country-detail__text--sm {
+        margin-top: 30px !important;
+    }
 }
