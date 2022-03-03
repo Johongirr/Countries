@@ -20,8 +20,7 @@ const CountrySearchInput = styled.input`
   background-color: transparent;
 `;
 
-function SearchInput({ updateUserVal }) {
-  const [input, setInput] = useState("");
+function SearchInput({ updateUserVal, userVal }) {
   return (
     <SearchInputBox className="search-input-box">
       <SearchIcon
@@ -34,10 +33,9 @@ function SearchInput({ updateUserVal }) {
         name="search-input"
         placeholder="Search for any country..."
         onChange={({ target: { value } }) => {
-          setInput(value);
           updateUserVal(value);
         }}
-        value={input}
+        value={userVal}
       />
     </SearchInputBox>
   );

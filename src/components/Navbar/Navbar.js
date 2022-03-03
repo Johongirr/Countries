@@ -11,7 +11,7 @@ function Header() {
         position="static"
         className="header__box"
         sx={{
-          padding: "12px 0",
+          padding: "20px 0",
           background: "#fff",
           color: "#000",
           boxShadow: "0 1px 10px rgba(0,0,0,0.1)",
@@ -20,7 +20,9 @@ function Header() {
         <Wrapper>
           <Grid container justifyContent="space-between" alignItems="center">
             <Grid item>
-              <Typography variant="h6">Where In The World?</Typography>
+              <Typography variant="h5" fontWeight="bold">
+                Where In The World?
+              </Typography>
             </Grid>
             <Grid item>
               <ThemeSwitcher />

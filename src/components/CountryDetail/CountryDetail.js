@@ -3,10 +3,16 @@ import axios from "axios";
 import { Button, Box, Grid, Typography } from "@mui/material";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import { NavLink, useLocation } from "react-router-dom";
+import { addCommaToNumbers } from "../../util/addComma";
 
-function CountryDetail({ countryName, exitCountryDetail }) {
+function CountryDetail({
+  countryName,
+  exitCountryDetail,
+  countryDetailActive,
+}) {
   const [country, setCountry] = useState("");
   const [alphaCountry, setAlphaCountry] = useState("");
+
   const location = useLocation();
   useEffect(() => {
     axios
@@ -14,6 +20,11 @@ function CountryDetail({ countryName, exitCountryDetail }) {
       .then((res) => {
         setCountry(res.data);
       });
+
+    window.addEventListener("load", () => {
+      console.log("LOADED!!!");
+      exitCountryDetail(true);
+    });
   }, []);
   useEffect(() => {
     console.log("Working");
@@ -43,8 +54,9 @@ function CountryDetail({ countryName, exitCountryDetail }) {
             <Typography ml={1}>Back</Typography>
           </NavLink>
           <Grid container mt={10}>
-            <Grid item lg={6}>
+            <Grid item xs={12} lg={6}>
               <img
+                className="country-detail__img"
                 src={country[0].flag}
                 alt={country[0].name}
                 style={{
@@ -71,7 +83,7 @@ function CountryDetail({ countryName, exitCountryDetail }) {
                   <Typography mb={1}>
                     <strong className="country-detail__text">Population</strong>{" "}
                     <span className="country-detail__text--gray">
-                      {country[0].population}
+                      {addCommaToNumbers(country[0].population)}
                     </span>
                   </Typography>
                   <Typography mb={1}>
@@ -137,6 +149,11 @@ function CountryDetail({ countryName, exitCountryDetail }) {
                       {border}
                     </Button>
                   ))}
+                  {!country[0]?.borders && (
+                    <Button variant="contained" className="country-detail__btn">
+                      No Borders
+                    </Button>
+                  )}
                 </Typography>
               </Box>
             </Grid>

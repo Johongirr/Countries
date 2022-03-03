@@ -10,7 +10,12 @@ function ThemeSwitcher() {
     toggleTheme();
   };
   return (
-    <Box onClick={handleCLick} display="flex" alignItems="center">
+    <Box
+      onClick={handleCLick}
+      display="flex"
+      sx={{ cursor: "pointer" }}
+      alignItems="center"
+    >
       {theme === "dark" ? <LightModeIcon /> : <DarkModeIcon />}
       <Typography sx={{ marginLeft: "5px" }}>
         {theme === "dark" ? "Light Mode" : "Dark Mode"}

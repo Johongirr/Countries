@@ -10,20 +10,22 @@ import {
   Grid,
 } from "@mui/material";
 import { Link } from "react-router-dom";
+import { addCommaToNumbers } from "../../util/addComma";
 
 function CountryItem({ country, exitCountryDetail }) {
+  console.log(country.name.official);
   return (
     <Grid item xs="12" sm="6" md="4" lg="3">
       <Card className="card">
         <CardMedia
           component="img"
           height="200"
-          image={country.flag}
-          alt={country.name}
+          image={country.flags.svg}
+          alt={country.name.official}
         />
         <CardContent>
           <Typography gutterBottom variant="h6" mb={2}>
-            {country.name}
+            {country.name.official}
           </Typography>
           <Box display="flex">
             <Typography
@@ -37,7 +39,7 @@ function CountryItem({ country, exitCountryDetail }) {
               Population
             </Typography>
             <Typography variant="body2" component="span" className="card__gray">
-              {country.population}
+              {addCommaToNumbers(country.population)}
             </Typography>
           </Box>
           <Box display="flex">
@@ -72,7 +74,7 @@ function CountryItem({ country, exitCountryDetail }) {
         <CardActions>
           <Link
             onClick={() => exitCountryDetail(true)}
-            to={`/${country.name}`}
+            to={`/${country.name.common}`}
             className="country-item__btn"
           >
             Read Details

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import {
   FormControl,
   InputLabel,
@@ -6,8 +6,10 @@ import {
   MenuItem,
   createTheme,
 } from "@mui/material";
+import { ThemeTogglerProvider } from "../../contexts/ThemeToggler";
 
 function FilterCountries({ filterByContinent }) {
+  const { theme } = useContext(ThemeTogglerProvider);
   return (
     <div>
       <FormControl sx={{ width: "280px" }} className="filter-continent">
@@ -23,97 +25,42 @@ function FilterCountries({ filterByContinent }) {
           label="Age"
           variant="standard"
           className="filter-continent__select"
+          style={theme === "dark" ? { color: "#fff" } : { color: "#000" }}
         >
           <MenuItem
             className="filter-continent__option"
             sx={{ fontSize: "14px" }}
-            value="eu"
+            value="all"
+          >
+            All
+          </MenuItem>
+          <MenuItem
+            className="filter-continent__option"
+            sx={{ fontSize: "14px" }}
+            value="europe"
           >
             Europe
           </MenuItem>
           <MenuItem
             className="filter-continent__option"
             sx={{ fontSize: "14px" }}
-            value="efta"
+            value="africa"
           >
-            European Trade Association
+            Africa
           </MenuItem>
           <MenuItem
             className="filter-continent__option"
             sx={{ fontSize: "14px" }}
-            value="caricom"
+            value="asia"
           >
-            Caribbean Community
+            Asia
           </MenuItem>
           <MenuItem
             className="filter-continent__option"
             sx={{ fontSize: "14px" }}
-            value="pa"
+            value="Oceania"
           >
-            Pacific Alliance
-          </MenuItem>
-          <MenuItem
-            className="filter-continent__option"
-            sx={{ fontSize: "14px" }}
-            value="au"
-          >
-            African Union
-          </MenuItem>
-          <MenuItem
-            className="filter-continent__option"
-            sx={{ fontSize: "14px" }}
-            value="usan"
-          >
-            South American Union
-          </MenuItem>
-          <MenuItem
-            className="filter-continent__option"
-            sx={{ fontSize: "14px" }}
-            value="eeu"
-          >
-            Euroasion Economic Union
-          </MenuItem>
-          <MenuItem
-            className="filter-continent__option"
-            sx={{ fontSize: "14px" }}
-            value="al"
-          >
-            Arab League
-          </MenuItem>
-          <MenuItem
-            className="filter-continent__option"
-            sx={{ fontSize: "14px" }}
-            value="asean"
-          >
-            Southeast Asian Nations
-          </MenuItem>
-          <MenuItem
-            className="filter-continent__option"
-            sx={{ fontSize: "14px" }}
-            value="cais"
-          >
-            Central American Integration System
-          </MenuItem>
-          <MenuItem
-            className="filter-continent__option"
-            sx={{ fontSize: "14px" }}
-            value="cefta"
-          >
-            Central European Free Trade Agreement
-          </MenuItem>
-          <MenuItem
-            className="filter-continent__option"
-            sx={{ fontSize: "14px" }}
-            value="nafta"
-          >
-            North American Free Trade Agreement
-          </MenuItem>
-          <MenuItem
-            className="filter-continent__option"
-            sx={{ fontSize: "14px" }}
-            value="saarc"
-          >
-            South Asian Association
+            Oceania
           </MenuItem>
         </Select>
       </FormControl>
