@@ -38,6 +38,7 @@ function App() {
     setUserVal(val);
   };
   const filterByContinent = (continent) => {
+    setMenu(continent);
     setIsLoading(true);
     if (continent === "all") {
       axios.get(`https://restcountries.com/v3.1/all`).then((res) => {
@@ -80,7 +81,10 @@ function App() {
                   />
                 </Grid>
                 <Grid item>
-                  <FilterCountries filterByContinent={filterByContinent} />
+                  <FilterCountries
+                    continent={menu}
+                    filterByContinent={filterByContinent}
+                  />
                 </Grid>
               </Grid>
             )}

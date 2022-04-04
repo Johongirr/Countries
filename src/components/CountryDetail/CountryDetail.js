@@ -39,7 +39,7 @@ function CountryDetail({
     }
     setAlphaCountry("");
   }, [alphaCountry]);
-  console.log(country[0]?.latlng, country);
+  console.log(countryDetailActive);
   return (
     <div className="country-detail" style={{ padding: "50px 0" }}>
       {country.length && (

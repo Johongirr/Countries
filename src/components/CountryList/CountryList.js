@@ -2,7 +2,7 @@ import React from "react";
 import CountryItem from "../CountryItem/CountryItem";
 import { Grid, Typography } from "@mui/material";
 
-function CountryList({ countries, exitCountryDetail, userVal }) {
+function CountryList({ countries, exitCountryDetail, userVal, setIsLoading }) {
   const countriesList = countries?.filter((country) =>
     country.name.official.toLowerCase().includes(userVal.toLowerCase())
   );
@@ -29,6 +29,7 @@ function CountryList({ countries, exitCountryDetail, userVal }) {
               key={country.name.official}
               country={country}
               exitCountryDetail={exitCountryDetail}
+              setIsLoading={setIsLoading}
             />
           ))
         )}

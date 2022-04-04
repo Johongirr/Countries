@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useState, useContext } from "react";
 import {
   FormControl,
   InputLabel,
@@ -8,7 +8,7 @@ import {
 } from "@mui/material";
 import { ThemeTogglerProvider } from "../../contexts/ThemeToggler";
 
-function FilterCountries({ filterByContinent }) {
+function FilterCountries({ filterByContinent, continent }) {
   const { theme } = useContext(ThemeTogglerProvider);
   return (
     <div>
@@ -20,9 +20,12 @@ function FilterCountries({ filterByContinent }) {
           Filter by Region
         </InputLabel>
         <Select
-          onChange={(e) => filterByContinent(e.target.value)}
+          onChange={({ target: { value } }) => {
+            filterByContinent(value);
+          }}
           id="demo-simple-select"
           label="Age"
+          value={continent}
           variant="standard"
           className="filter-continent__select"
           style={theme === "dark" ? { color: "#fff" } : { color: "#000" }}

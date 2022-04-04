@@ -12,7 +12,7 @@ import {
 import { Link } from "react-router-dom";
 import { addCommaToNumbers } from "../../util/addComma";
 
-function CountryItem({ country, exitCountryDetail }) {
+function CountryItem({ country, exitCountryDetail, setIsLoading }) {
   console.log(country.name.official);
   return (
     <Grid item xs="12" sm="6" md="4" lg="3">
@@ -73,7 +73,9 @@ function CountryItem({ country, exitCountryDetail }) {
         </CardContent>
         <CardActions>
           <Link
-            onClick={() => exitCountryDetail(true)}
+            onClick={() => {
+              exitCountryDetail(true);
+            }}
             to={`/${country.name.common}`}
             className="country-item__btn"
           >
